@@ -4,6 +4,7 @@
 #include "login.c"
 #include "bal_file.c"
 #include "depo_file.c"
+#include "with_file.c"
 #include "color_file.c"
 int main()
 {
@@ -61,7 +62,7 @@ int main()
         case 3:
 
             printf("1_check your balance\n\n");
-            printf("2deposit a certain amount of money into your bank account\n\n");
+            printf("2_deposit a certain amount of money into your bank account\n\n");
             printf("3_get help\n\n");
             printf("4_get your money of the bank\n\n");
             printf("5_get all your acc informations\n\n");
@@ -85,16 +86,17 @@ int main()
             break;
 
         case 4:
+            // ! gets depo value and clears terminal after 2s
 
-            printf("enter annount: ");
-            scanf(" %.3f", &with);
-
-            bal = bal - with;
-            printf("\nbalance: %.3f\n", bal);
+            check_with();
+            sleep(2);
+            system("cls");
+            break;
 
         case 5:
 
             printf("balance: %.3f\n", bal);
+            printf("last deposit was: ");
             break;
         case 6:
             fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
@@ -114,5 +116,4 @@ int main()
             break;
         };
     }
-    
 }
