@@ -6,7 +6,7 @@ void check_depo()
     int depo;
 
     FILE *fp;
-    fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
+    fp = fopen("text files\\depo.txt", "w");
     if (fp == NULL)
 
     {
