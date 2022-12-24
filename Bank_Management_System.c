@@ -15,7 +15,7 @@ int main()
 
     // ! user login function:
 
-    login();
+    // login();
     // * clearing the terminal
     system("cls");
     for (i = 0; i < 10; i--)
@@ -99,11 +99,11 @@ int main()
             printf("last deposit was: ");
             break;
         case 6:
-            fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
+            fp = fopen("text files\\depo.txt", "w");
             depo = 0;
             fprintf(fp, "%d", depo);
             fclose(fp);
-            fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "w");
+            fp = fopen("text files\\bal.txt", "w");
             bal = 0;
             fprintf(fp, "%d", bal);
             fclose(fp);
