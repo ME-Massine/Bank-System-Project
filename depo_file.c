@@ -13,9 +13,17 @@ void check_depo()
         printf("Unable to create file.\n");
         exit(EXIT_FAILURE);
     }
-    printf("\nhow much do you want to deposit: ");
-    scanf("%d", &depo);
-    fprintf(fp, "%d", depo);
+    if (depo > 0)
+    {
+        printf("\nhow much do you want to deposit: ");
+        scanf("%d", &depo);
+        fprintf(fp, "%d", depo);
+    }
+
+    if (depo <= 0)
+    {
+        printf("invalid value");
+    }
 
     fclose(fp);
 }
