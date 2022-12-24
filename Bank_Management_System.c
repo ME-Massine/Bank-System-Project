@@ -15,7 +15,7 @@ int main()
 
     // ! user login function:
 
-    // login();
+    login();
     // * clearing the terminal
     system("cls");
     for (i = 0; i < 10; i--)
