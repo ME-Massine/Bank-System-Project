@@ -11,7 +11,7 @@ void check_with()
 
     // ! reading balance value
 
-    fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "r");
+    fp = fopen("text files\\bal.txt", "r");
     if (fp == NULL)
     {
         printf("Unable to create file.\n");
@@ -24,33 +24,34 @@ void check_with()
     fclose(fp);
 
     // ! getting withdraw value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\with.txt", "w");
+    fp = fopen("text files\\with.txt", "w");
 
     printf("\nhow much do you want to withdraw: ");
     scanf("%d", &with);
-    fprintf(fp, "%d", with);
-    if (with <=0 )
-    {
-        exit();
-    }
-    
     // ! reading withdraw value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\with.txt", "r");
+    fp = fopen("text files\\with.txt", "r");
     while (!feof(fp))
     {
         fscanf(fp, "%d", &with);
     }
     fclose(fp);
 
+    if (with < 0)
+    {
+        printf("invalid value");
+        exit(EXIT_FAILURE);
+    }
+    
+
     // ? calculating balance
     bal = bal - with;
-    fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "w");
+    fp = fopen("text files\\bal.txt", "w");
     fprintf(fp, "%d", bal);
 
     fclose(fp);
 
     // ! clearing with value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
+    fp = fopen("text files\\depo.txt", "w");
     with = 0;
     fprintf(fp, "%d", with);
 
