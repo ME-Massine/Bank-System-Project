@@ -31,7 +31,7 @@ void check_bal()
     }
     fclose(fp);
 
-    // ! calculating balance
+    // ? calculating balance
     bal = bal + depo;
     printf("your balance is %d", bal);
     fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "w");
