@@ -11,7 +11,7 @@ void check_bal()
 
     // ! reading balance value
 
-    fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "r");
+    fp = fopen("text files\\bal.txt", "r");
     if (fp == NULL)
     {
         printf("Unable to create file.\n");
@@ -24,7 +24,7 @@ void check_bal()
     fclose(fp);
 
     // ! reading depo value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "r");
+    fp = fopen("text files\\depo.txt", "r");
     while (!feof(fp))
     {
         fscanf(fp, "%d", &depo);
@@ -34,13 +34,13 @@ void check_bal()
     // ? calculating balance
     bal = bal + depo;
     printf("your balance is %d", bal);
-    fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "w");
+    fp = fopen("text files\\bal.txt", "w");
     fprintf(fp, "%d", bal);
 
     fclose(fp);
 
     // ! clearing depo value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
+    fp = fopen("text files\\depo.txt", "w");
     depo = 0;
     fprintf(fp, "%d", depo);
 
