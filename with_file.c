@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <conio.h>
 
-void check_bal()
+void check_with()
 {
     int bal, with;
 
@@ -19,30 +19,40 @@ void check_bal()
     }
     while (!feof(fp))
     {
-        bal = fscanf(fp, "%d", &bal);
+        with = fscanf(fp, "%d", &bal);
     }
     fclose(fp);
 
-    // ! reading depo value
-    fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "r");
+    // ! getting withdraw value
+    fp = fopen("C:\\Users\\Massine\\Desktop\\with.txt", "w");
+
+    printf("\nhow much do you want to withdraw: ");
+    scanf("%d", &with);
+    fprintf(fp, "%d", with);
+    if (with <=0 )
+    {
+        exit();
+    }
+    
+    // ! reading withdraw value
+    fp = fopen("C:\\Users\\Massine\\Desktop\\with.txt", "r");
     while (!feof(fp))
     {
         fscanf(fp, "%d", &with);
     }
     fclose(fp);
 
-    // ! calculating balance
-    bal = bal + depo;
-    printf("your balance is %d", bal);
+    // ? calculating balance
+    bal = bal - with;
     fp = fopen("C:\\Users\\Massine\\Desktop\\bal.txt", "w");
     fprintf(fp, "%d", bal);
 
     fclose(fp);
 
-    // ! clearing depo value
+    // ! clearing with value
     fp = fopen("C:\\Users\\Massine\\Desktop\\depo.txt", "w");
-    depo = 0;
-    fprintf(fp, "%d", depo);
+    with = 0;
+    fprintf(fp, "%d", with);
 
     fclose(fp);
 }
