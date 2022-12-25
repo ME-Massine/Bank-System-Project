@@ -19,7 +19,7 @@ void check_with()
     }
     while (!feof(fp))
     {
-        with = fscanf(fp, "%d", &bal);
+        fscanf(fp, "%d", &bal);
     }
     fclose(fp);
 
