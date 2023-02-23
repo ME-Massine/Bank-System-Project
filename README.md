@@ -1,18 +1,38 @@
-# bank-system-project-
-a small project of an ATM where the user will have to login first and then get access to their acc, there are 6 options; 
+# Bank Management System
+The code provided implements a basic banking system with functionalities such as account balance checking, depositing and withdrawing money, and providing account information. The system requires the user to log in using a pre-existing account or sign up for a new account if they don't have one. The user interface is a simple command-line interface.
 
-1_balance. 2_deposit. 3_get help. 4_withdraw. 5_acc info. 6_quit.
+## Features
+- Create a new account
+- Deposit funds into an account
+- Withdraw funds from an account
+- View account information
 
-1_for the balancef function, i created a file where the bal value gets stored for future usage.
+## Getting Started
 
-2_for the deposit function, i created a file where the depo value gets stored to be added to the bal's value and gets assigned a value of 0 after so it won't affect the bal value in the future.( bal -= depo )
+### Prerequisites
 
-3_for the get help option, it's just a guide for the user to understand the purpose of each option on the menu.
+- GCC compiler
 
-4_for the withdraw function, i created a file to store withdraw value so we can substract it from the balance and gets assigned the value 0 after.
+## Instalation
 
-5_acc info is where the user can get their personal information such as acc name/acc bal/last activities/acc creation date.
+1. Clone the repository: git clone https://github.com/username/repo.git
+2. Navigate to the project directory: cd repo/bank-management-system
+3. Compile the program: gcc main.c -o bank
+4. Run the program: ./bank
 
-6_for the user to stop the progeram and quit.
+## Usage
+Once you have the program running, you can use the following commands:
 
-I hope that I was helpful💖.
+- create - create a new account
+- deposit - deposit funds into an account
+- withdraw - withdraw funds from an account
+- view - view account information
+- quit - exit the program
+
+## License
+> This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Sample Output
+``` 
+
+```
