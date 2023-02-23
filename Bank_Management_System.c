@@ -106,7 +106,7 @@ int main()
             break;
 
         case 5:
-            
+
             printf("Still working on this feature.");
             sleep(1);
             system("cls");
@@ -117,10 +117,10 @@ int main()
             system("cls");
             break;
         case 7:
-        printf("Have a nice day.\n");
-        sleep(1);
-        system("cls");
-        exit(EXIT_SUCCESS);
+            printf("Have a nice day.\n");
+            sleep(1);
+            system("cls");
+            exit(EXIT_SUCCESS);
 
         default:
             printf("invalid");
