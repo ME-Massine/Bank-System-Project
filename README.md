@@ -29,6 +29,11 @@ Once you have the program running, you can use the following commands:
 - view - view account information
 - quit - exit the program
 
+## Updates
+
+24/02/2023 - added a new feature (Transfer funds).
+
+
 ## License
 > This project is licensed under the MIT License - see the LICENSE file for details.
 
