@@ -13,14 +13,14 @@ The code provided implements a basic banking system with functionalities such as
 
 - GCC compiler
 
-## Instalation
+### Instalation
 
 1. Clone the repository: git clone https://github.com/username/repo.git
 2. Navigate to the project directory: cd repo/bank-management-system
 3. Compile the program: gcc main.c -o bank
 4. Run the program: ./bank
 
-## Usage
+### Usage
 Once you have the program running, you can use the following commands:
 
 - create - create a new account
@@ -29,11 +29,11 @@ Once you have the program running, you can use the following commands:
 - view - view account information
 - quit - exit the program
 
-## Updates
+### Updates
 
 24/02/2023 - added a new feature ( Transfer funds )
 
 
-## License
+### License
 > This project is licensed under the MIT License - see the LICENSE file for details.
 
