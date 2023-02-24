@@ -31,7 +31,7 @@ Once you have the program running, you can use the following commands:
 
 ## Updates
 
-24/02/2023 - added a new feature (Transfer funds).
+24/02/2023 - added a new feature ( Transfer funds )
 
 
 ## License
