@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "Functions.h"
+#include <windows.h>
 
 int main()
 {
@@ -34,9 +35,7 @@ int main()
         cyan();
         printf("\n6. Transfer Funds ");
         reset();
-        yellow();
-        printf("(Upcoming Feature!)\n");
-        reset();
+        printf("\x1b[32m(New Feature!)\x1b[0m\n");
         red();
         printf("7. Exit");
         reset();
@@ -56,7 +55,7 @@ int main()
             // ! prints balance and clears terminal after 2s
             system("cls");
             check_bal();
-            sleep(1.5);
+            Sleep(1500);
             system("cls");
             break;
 
@@ -65,7 +64,7 @@ int main()
             system("cls");
             check_depo();
             printf("\n\n");
-            sleep(0.5);
+            Sleep(500);
             system("cls");
             break;
         case 3:
@@ -101,7 +100,7 @@ int main()
             // ! gets depo value and clears terminal after 0.5s
 
             check_with();
-            sleep(0.5);
+            Sleep(500);
             system("cls");
             break;
 
@@ -112,7 +111,7 @@ int main()
             system("cls");
             break;
         case 6:
-            printf("Still working on this feature.");
+            fundsTransfer();
             sleep(1);
             system("cls");
             break;
