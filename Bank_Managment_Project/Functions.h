@@ -36,13 +36,18 @@ void reset()
 void login()
 {
 
-    int i = 3;
     bool exists;
+
     do
     {
         system("cls");
-        printf("Enter your Username: ");
+        red();
+        printf("Login");
+        cyan();
+        printf("\n\nEnter your Username: ");
+        Purple();
         scanf("%s", Username);
+        cyan();
 
         sprintf(filename, "Users\\%s.txt", Username);
         FILE *fp = fopen(filename, "r");
@@ -51,12 +56,20 @@ void login()
             exists = true;
         }
         else
+        {
             exists = false;
+            yellow();
+            printf("\nUsername doesn't exist.");
+            cyan();
+        }
         fclose(fp);
+        sleep(1);
     } while (exists == false);
 
-    printf("Enter your password: ");
+    printf("\nEnter your password: ");
+    Purple();
     scanf("%s", password);
+    cyan();
 
     //! read first line of file into line variable
     FILE *fp = fopen(filename, "r");
@@ -66,29 +79,37 @@ void login()
     //! gets password from first line in file
     if (sscanf(line, "password: %s", Cpassword) == 1)
     {
-        if (strcmp(Cpassword, password) == 0)
+        do
         {
-            yellow();
-            printf("\nSuccesfully logged in.\n");
-            reset();
-            cyan();
-            sleep(1);
-        }
-        else
-        {
-            printf("Incorrect password.\n");
-            sleep(1);
-            exit(EXIT_FAILURE);
-        }
+            if (strcmp(Cpassword, password) == 0)
+            {
+                yellow();
+                printf("\nSuccesfully logged in.\n");
+                cyan();
+                sleep(1);
+            }
+            else
+            {
+                yellow();
+                printf("\nIncorrect password.\n");
+                cyan();
+                sleep(1);
+                exit(EXIT_FAILURE);
+            }
+        } while (strcmp(Cpassword, password) != 0);
     }
-};
+    /*//! reading balance to use it later
+    fp = fopen(filename, "r");
+    fscanf(fp, "password: %s\nbalance: %d", password, &bal);
+
+    fclose(fp);*/
+}
 
 void check_bal()
 {
     FILE *fp;
     red();
     printf("Balance\n");
-    reset();
 
     fp = fopen(filename, "r");
     fscanf(fp, "password: %s\nbalance: %d", password, &bal);
@@ -99,22 +120,26 @@ void check_bal()
     cyan();
     printf("\nyour balance is %dDH", bal);
     reset();
-};
+}
 
 void sign_up()
 {
-    char Username[30], password[30], Cpassword[30], filename[30];
+    char Username[30], password[30], filename[30];
     int bal = 0;
     bool exists;
 
     FILE *fp;
-    system("cls");
 
     do
     {
         system("cls");
+        red();
+        printf("Sign up");
+        cyan();
         printf("Enter your Username: ");
+        Purple();
         scanf("%s", Username);
+        cyan();
 
         sprintf(filename, "Users\\%s.txt", Username);
         fp = fopen(filename, "r");
@@ -131,26 +156,30 @@ void sign_up()
     } while (exists == true);
 
     printf("Enter your password: ");
+    Purple();
     scanf("%s", password);
+    cyan();
     fp = fopen(filename, "w");
-    fprintf(fp, "password: %s", password);
-    fprintf(fp, "\nbalance = %d", bal);
+    fprintf(fp, "password: %s\nbalance: %d", password, bal);
 
     fclose(fp);
     system("cls");
     exit(EXIT_SUCCESS);
-};
+}
 
 void acc()
 {
     char choice;
-
+    yellow();
     printf("Please select an option from the menu below:\n\n");
+    cyan();
     printf("a. Login \n");
     printf("b. Sign up \n");
     printf("c. Exit \n\n");
     printf("Enter your choice: ");
+    Purple();
     scanf(" %c", &choice);
+    cyan();
 
     switch (choice)
     {
@@ -164,7 +193,7 @@ void acc()
         exit(EXIT_FAILURE);
         break;
     }
-};
+}
 
 void check_with()
 {
@@ -188,7 +217,6 @@ void check_with()
 
     red();
     printf("Withdraw\n");
-    reset();
 
     cyan();
     printf("\nhow much do you want to withdraw: ");
@@ -199,7 +227,9 @@ void check_with()
     printf("5. insert amount\t");
     printf("6. quit\n\n");
     printf("Type choice (1/2/3/4/5/6): ");
+    Purple();
     scanf("%d", &choice);
+    cyan();
     switch (choice)
     {
     case 1:
@@ -217,7 +247,9 @@ void check_with()
     case 5:
         system("cls");
         printf("Insert an amount: ");
+        Purple();
         scanf("%d", &with);
+        cyan();
         break;
     case 6:
         break;
@@ -248,7 +280,8 @@ void check_with()
         with = 0;
     }
     reset();
-};
+    sleep(1);
+}
 
 void check_depo()
 {
@@ -257,11 +290,12 @@ void check_depo()
     // ! getting depo value
     red();
     printf("Deposit\n");
-    reset();
 
     cyan();
     printf("\nhow much do you want to deposit: ");
+    Purple();
     scanf("%d", &depo);
+    cyan();
 
     if (depo <= 0)
     {
@@ -313,7 +347,9 @@ void fundsTransfer()
         printf("Transfer funds\n");
         cyan();
         printf("\nThe recipient's account Username: ");
+        Purple();
         scanf("%s", Username_1);
+        cyan();
 
         if (strcmp(Username, Username_1) == 0)
         {
@@ -340,7 +376,9 @@ void fundsTransfer()
         }
 
         printf("\nThe amount of money you wish to transfer: ");
+        Purple();
         scanf("%d", &funds);
+        cyan();
 
         // Getting balance from the sender account
         fp = fopen(filename, "r");
@@ -375,4 +413,186 @@ void fundsTransfer()
         }
 
     } while (exists == false);
-};
+}
+
+void Username_change()
+{
+    char Nfilename[100], NUsername[30];
+    bool exists;
+
+    FILE *fp;
+
+    do
+    {
+        system("cls");
+        printf("Insert your new Username: ");
+        Purple();
+        scanf("%s", NUsername);
+        cyan();
+
+        sprintf(Nfilename, "Users\\%s.txt", NUsername);
+
+        fp = fopen(Nfilename, "r");
+        if (fp != NULL)
+        {
+            exists = true;
+            yellow();
+            printf("\n\nUsername already taken.");
+            sleep(1);
+            cyan();
+        }
+        else
+            exists = false;
+        fclose(fp);
+    } while (exists == true);
+
+    int result = rename(filename, Nfilename);
+
+    if (result == 0)
+    {
+        yellow();
+        printf("\nThe file is renamed successfully.");
+        cyan();
+    }
+    else
+    {
+        yellow();
+        printf("\nThe file could not be renamed.");
+        cyan();
+    }
+    sleep(1);
+}
+
+void password_change()
+{
+
+    char Cupassword[30], Confirm_password[30];
+    int result;
+
+    FILE *fp;
+
+    do
+    {
+        system("cls");
+        printf("Enter your current password: ");
+        Purple();
+        scanf("%s", Cupassword);
+        cyan();
+
+        result = strcmp(Cupassword, password);
+
+        if (result != 0)
+        {
+            yellow();
+            printf("\nIncorrect password.");
+            cyan();
+            sleep(1);
+        }
+
+    } while (result != 0);
+
+    printf("\nEnter new password: ");
+    Purple();
+    scanf("%s", Cupassword);
+    cyan();
+    printf("\nConfirm your new password: ");
+    Purple();
+    scanf("%s", Confirm_password);
+    cyan();
+
+    if (strcmp(Cupassword, Confirm_password) == 0)
+    {
+
+        fp = fopen(filename, "w");
+        fprintf(fp, "password: %s\nbalance: %d", Confirm_password, bal);
+
+        fclose(fp);
+        yellow();
+        printf("\nPassword changed succesfully.");
+        cyan();
+    }
+    else
+    {
+        yellow();
+        printf("\nPasword doesn't match.");
+        cyan();
+    }
+    sleep(1);
+}
+
+void Acc_info()
+{
+
+    int choice, choice_1;
+
+    FILE *fp;
+
+    red();
+    printf("Account Informations");
+
+    cyan();
+    printf("\n\nUsername: %s", Username);
+    // printf("Phone number: %s",Phone_number);
+
+    fp = fopen(filename, "r");
+    fscanf(fp, "password: %s\nbalance: %d", password, &bal);
+
+    fclose(fp);
+
+    printf("\ncurrent balance: %dDH", bal);
+
+    printf("\n\n1. Edit profile ");
+    printf("\t\t2. Go back");
+    printf("\n\npick an option: ");
+    Purple();
+    scanf("%d", &choice);
+    cyan();
+
+    switch (choice)
+    {
+    case 1:
+
+        system("cls");
+        red();
+        printf("Account informations");
+
+        cyan();
+        printf("\n\nwhat do you want to change? ");
+        printf("\n\n1. Username");
+        printf("\n2. Password");
+        printf("\n3. Phone number");
+
+        printf("\n\npick an option: ");
+        Purple();
+        scanf("%d", &choice_1);
+        cyan();
+
+        switch (choice_1)
+        {
+        case 1:
+            Username_change();
+            break;
+
+        case 2:
+            password_change();
+            break;
+
+        case 3:
+            break;
+
+        default:
+            break;
+        }
+
+        break;
+
+    case 2:
+        system("cls");
+        break;
+
+    default:
+        system("cls");
+        printf("\nInvalid input");
+        break;
+    }
+}
