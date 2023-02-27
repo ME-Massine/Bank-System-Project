@@ -33,7 +33,7 @@ Once you have the program running, you can use the following commands:
 <pre>
 24/02/2023 - added a new feature ( Transfer funds )
 27/02/2023 - added a new feature ( view account )
-           - now it's passible to change your account's informations such as Username & password ( still working on changing phone number 
+27/02/2023 - now it's passible to change your account's informations such as Username & password ( still working on changing phone number 
 </pre>
 
 ### License
