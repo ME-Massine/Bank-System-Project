@@ -30,11 +30,11 @@ Once you have the program running, you can use the following commands:
 - quit - exit the program
 
 ### Updates
-
-24/02/2023 - added a new feature ( Transfer funds ) <br />
-27/02/2023 - added a new feature ( view account )<br />
+<pre>
+24/02/2023 - added a new feature ( Transfer funds )
+27/02/2023 - added a new feature ( view account )
            - now it's passible to change your account's informations such as Username & password ( still working on changing phone number 
-
+</pre>
 
 ### License
 > This project is licensed under the MIT License - see the LICENSE file for details.
