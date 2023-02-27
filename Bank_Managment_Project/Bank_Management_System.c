@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "Functions.h"
 #include <windows.h>
+#include "Functions.h"
 
 int main()
 {
-    float depo;
-    int choice, i, bal;
+    int choice, i;
     char choice_3;
     system("cls");
     // ! user login function:
@@ -44,10 +43,11 @@ int main()
         // ! getting choice from user
 
         printf("\n\npick an option: ");
+        Purple();
         scanf(" %d", &choice);
-        printf("\n\n");
+        cyan();
 
-        FILE *fp;
+        
 
         switch (choice)
         {
@@ -105,9 +105,8 @@ int main()
             break;
 
         case 5:
-
-            printf("Still working on this feature.");
-            sleep(1);
+            system("cls");
+            Acc_info();
             system("cls");
             break;
         case 6:
