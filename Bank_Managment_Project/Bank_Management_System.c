@@ -69,7 +69,9 @@ int main()
             break;
         case 3:
             system("cls");
+            red();
             printf("=== HELP ===\n\n");
+            cyan();
             printf("1. Check your balance\n");
             printf("2. Deposit a certain amount of money into your bank account\n");
             printf("3. Get help\n");
@@ -77,7 +79,9 @@ int main()
             printf("5. Get all your account information\n");
             printf("6. Quit the program\n\n");
             printf("Go back to the menu? (y/n): ");
+            Purple();
             scanf(" %c", &choice_3);
+            cyan();
 
             switch (choice_3)
             {
@@ -89,7 +93,10 @@ int main()
                 exit(EXIT_SUCCESS);
                 break;
             default:
-                printf("invalid input(y/n)");
+                yellow();
+                printf("\ninvalid input");
+                sleep(1);
+                cyan();
                 system("cls");
                 break;
             }
