@@ -1,11 +1,9 @@
 #include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <stdbool.h>
-#include <windows.h>
 
-char Username[50], password[30], Cpassword[30], filename[100], line[100], Username_1[50], filename_1[100];
+char Username[50], password[30], Cpassword[30], filename[100], line[100], Username_1[50], filename_1[100], phone_number[11];
 int bal, funds;
 
 void red()
@@ -40,6 +38,7 @@ void login()
 
     do
     {
+        again:;
         system("cls");
         red();
         printf("Login");
@@ -93,16 +92,11 @@ void login()
                 yellow();
                 printf("\nIncorrect password.\n");
                 cyan();
+                goto again;
                 sleep(1);
-                exit(EXIT_FAILURE);
             }
         } while (strcmp(Cpassword, password) != 0);
     }
-    /*//! reading balance to use it later
-    fp = fopen(filename, "r");
-    fscanf(fp, "password: %s\nbalance: %d", password, &bal);
-
-    fclose(fp);*/
 }
 
 void check_bal()
@@ -136,7 +130,7 @@ void sign_up()
         red();
         printf("Sign up");
         cyan();
-        printf("Enter your Username: ");
+        printf("\n\nEnter your Username: ");
         Purple();
         scanf("%s", Username);
         cyan();
@@ -146,21 +140,34 @@ void sign_up()
         if (fp != NULL)
         {
             exists = true;
-            printf("Username already taken.");
+            yellow();
+            printf("\nUsername already taken.");
             sleep(1);
+            goto here;
         }
         else
             exists = false;
         fclose(fp);
 
-    } while (exists == true);
+        printf("\n\nEnter your phone number (06XXX): ");
+        scanf("\r%s", phone_number);
 
-    printf("Enter your password: ");
+        if (strlen(phone_number) != 10)
+        {
+            yellow();
+            printf("\n\nPhone number must be 10 digits. ");
+            sleep(1);
+        }
+    here:;
+
+    } while ((exists == true) || (strlen(phone_number) != 10));
+
+    printf("\nEnter your password: ");
     Purple();
     scanf("%s", password);
     cyan();
     fp = fopen(filename, "w");
-    fprintf(fp, "password: %s\nbalance: %d", password, bal);
+    fprintf(fp, "password: %s\nphone_number: %s\nbalance: %d", password, phone_number, bal);
 
     fclose(fp);
     system("cls");
@@ -190,6 +197,10 @@ void acc()
         sign_up();
         break;
     default:
+        yellow();
+        printf("\nInvalid input");
+        cyan();
+        system("cls");
         exit(EXIT_FAILURE);
         break;
     }
@@ -213,6 +224,8 @@ void check_with()
     fclose(fp);
 
     // ! getting withdraw value
+
+back:;
     system("cls");
 
     red();
@@ -225,7 +238,9 @@ void check_with()
     printf("3. 800DH\t\t");
     printf("4. 1000DH\n");
     printf("5. insert amount\t");
+    red();
     printf("6. quit\n\n");
+    cyan();
     printf("Type choice (1/2/3/4/5/6): ");
     Purple();
     scanf("%d", &choice);
@@ -252,20 +267,33 @@ void check_with()
         cyan();
         break;
     case 6:
+        goto exit;
         break;
     default:
-        printf("Invalid input");
+        yellow();
+        printf("\nInvalid input");
+        cyan();
+        sleep(1);
+        goto back;
         system("cls");
         break;
     }
 
     if (with < 0)
     {
-        printf("invalid value");
+        yellow();
+        printf("\ninvalid value");
+        cyan();
+        sleep(1);
+        goto back;
     }
     if (with > bal)
     {
-        printf("not enough money in account");
+        yellow();
+        printf("\nnot enough money in account");
+        cyan();
+        sleep(1);
+        goto back;
     }
     else
     {
@@ -280,6 +308,7 @@ void check_with()
         with = 0;
     }
     reset();
+exit:;
     sleep(1);
 }
 
@@ -520,6 +549,27 @@ void password_change()
     sleep(1);
 }
 
+//! changing the phone number
+void phone_number_change()
+{
+    do
+    {
+        system("cls");
+        red();
+        printf("Changing phone number");
+        cyan();
+        printf("Enter you new phone number: ");
+
+        if (strlen(phone_number) != 10)
+        {
+            yellow();
+            printf("\n\nPhone number must be 10 digits. ");
+            sleep(1);
+            cyan();
+        }
+
+    } while (strlen(phone_number) != 10);
+}
 void Acc_info()
 {
 
@@ -535,7 +585,7 @@ void Acc_info()
     // printf("Phone number: %s",Phone_number);
 
     fp = fopen(filename, "r");
-    fscanf(fp, "password: %s\nbalance: %d", password, &bal);
+    fscanf(fp, "password: %s\nphone_number: %s\nbalance: %d", password, phone_number, &bal);
 
     fclose(fp);
 
