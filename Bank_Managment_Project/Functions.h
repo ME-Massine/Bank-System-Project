@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <windows.h>
 
 char Username[50], password[30], Cpassword[30], filename[100], line[100], Username_1[50], filename_1[100], phone_number[11];
 int bal, funds;
