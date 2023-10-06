@@ -1,5 +1,0 @@
-[06-10-2023 14:08] deposited money
-[06-10-2023 14:09] withdrew money
-[06-10-2023 14:09] Username was updated.
-[06-10-2023 14:09] Password was changed.
-[06-10-2023 14:10] Phone number was changed.
