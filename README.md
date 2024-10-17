@@ -15,10 +15,10 @@ The code provided implements a basic banking system with functionalities such as
 
 ### Instalation
 
-1. Clone the repository: git clone https://github.com/username/repo.git
+1. Clone the repository: git clone https://github.com/ME-Massine/Bank-System-Project
 2. Navigate to the project directory: cd repo/bank-management-system
 3. Compile the program: gcc main.c -o bank
-4. Run the program: ./bank
+4. Run the program.
 
 ### Usage
 Once you have the program running, you can use the following commands:
