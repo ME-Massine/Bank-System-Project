@@ -9,23 +9,29 @@ int main()
     int choice, i;
     char choice_3;
     system("cls");
-    // ! user login function:
+
+    // Welcome message
     red();
     printf("Welcome to the Bank Management System!\n\n");
     reset();
+
+    // User login or signup
     acc();
-    // * clearing the terminal
+
+    // Clearing the terminal
     system("cls");
+
+    // Main ATM menu loop
     for (i = 0; i <= 10; i++)
     {
-        // * ATM menu
+        // Display ATM menu
         red();
         printf("\n--------------- Welcome to ATM --------------\n\n");
         reset();
         cyan();
         printf("1. Check Balance");
         printf("\n2. Deposit Money\n");
-        printf("3. Get help");
+        printf("3. Get Help");
         printf("\n4. Withdraw Money\n");
         printf("5. Account Information ");
         yellow();
@@ -40,19 +46,17 @@ int main()
         reset();
         cyan();
 
-        // ! getting choice from user
-
-        printf("\n\npick an option: ");
+        // Getting user choice
+        printf("\n\nPick an option: ");
         Purple();
         scanf(" %d", &choice);
         cyan();
 
-        
-
+        // Switch statement for menu options
         switch (choice)
         {
         case 1:
-            // ! prints balance and clears terminal after 2s
+            // Check balance
             system("cls");
             check_bal();
             Sleep(1500);
@@ -60,14 +64,16 @@ int main()
             break;
 
         case 2:
-            // ! gets depo value and clears terminal after 0.5s
+            // Deposit money
             system("cls");
             check_depo();
             printf("\n\n");
             Sleep(500);
             system("cls");
             break;
+
         case 3:
+            // Help menu
             system("cls");
             red();
             printf("=== HELP ===\n\n");
@@ -77,12 +83,14 @@ int main()
             printf("3. Get help\n");
             printf("4. Withdraw your money from the bank\n");
             printf("5. Get all your account information\n");
-            printf("6. Quit the program\n\n");
+            printf("6. Transfer funds to another account\n");
+            printf("7. Quit the program\n\n");
             printf("Go back to the menu? (y/n): ");
             Purple();
             scanf(" %c", &choice_3);
             cyan();
 
+            // Submenu for returning or exiting
             switch (choice_3)
             {
             case 'y':
@@ -94,41 +102,48 @@ int main()
                 break;
             default:
                 yellow();
-                printf("\ninvalid input");
+                printf("\nInvalid input");
                 sleep(1);
                 cyan();
                 system("cls");
                 break;
             }
-
             break;
 
         case 4:
-            // ! gets depo value and clears terminal after 0.5s
-
+            // Withdraw money
             check_with();
             Sleep(500);
             system("cls");
             break;
 
         case 5:
+            // Account Information (Upcoming feature)
             system("cls");
-            Acc_info();
+            // Acc_info();
             system("cls");
             break;
+
         case 6:
+            // Transfer funds
             fundsTransfer();
             sleep(1);
             system("cls");
             break;
+
         case 7:
+            // Exit
             printf("Have a nice day.\n");
             sleep(1);
             system("cls");
             exit(EXIT_SUCCESS);
 
         default:
-            printf("invalid");
+            // Invalid input handling
+            yellow();
+            printf("\nInvalid input. Please try again.\n");
+            sleep(1);
+            cyan();
             system("cls");
             break;
         };
